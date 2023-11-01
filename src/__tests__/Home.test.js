@@ -1,15 +1,17 @@
 import { render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
-import Footer from '../components/Footer'
+import Home from '../pages/Home'
 
-describe("<Footer />", () => {
-    it("renders a footer on our site", () => {
+describe("home page", () => {
+    it("renders the home page", () => {
         render(
             <BrowserRouter>
-                <Footer />
+                <Home />
             </BrowserRouter>
         )
-        const greetingLink = screen.getByText(/2023 ByteSize/i)
+
+        const greetingLink = screen.getByText(/Introducing our platform/i)
         expect(greetingLink).toBeInTheDocument()
+
     })
 })

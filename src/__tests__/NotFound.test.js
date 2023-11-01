@@ -1,15 +1,17 @@
 import { render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
-import Footer from '../components/Footer'
+import NotFound from '../pages/NotFound'
 
-describe("<Footer />", () => {
-    it("renders a footer on our site", () => {
+describe("not found page", () => {
+    it("renders the not found page", () => {
         render(
             <BrowserRouter>
-                <Footer />
+                <NotFound />
             </BrowserRouter>
         )
-        const greetingLink = screen.getByText(/2023 ByteSize/i)
+
+        const greetingLink = screen.getByText(/Not Found/i)
         expect(greetingLink).toBeInTheDocument()
+
     })
 })
