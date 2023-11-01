@@ -8,7 +8,7 @@ import {
     NavItem,
   } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
-
+import logo from '../assets/logo.jpg'
 
 
 function Header(props) {
@@ -20,7 +20,7 @@ function Header(props) {
       <div>
         <Navbar color="warning" light>
           <NavbarBrand href="/" className="logo-header">
-          {/* <img src={logo} alt="brick-logo" width="50" height="50" /> */}
+          <img src={logo} alt="brick-logo" width="50" height="50" />
             Brick By Brick
           </NavbarBrand>
           <NavbarToggler onClick={toggleNavbar} className="me-2" />
