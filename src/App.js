@@ -20,15 +20,15 @@ function App() {
     <>  
     <Header />
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/postedit" element={<PostEdit />} />
-      <Route path="/postindex" element={<PostIndex />} />
-      <Route path="/postnew" element={<PostNew />} />
-      <Route path="/myposts" element={<PostProtectedIndex />} />
-      <Route path="/postshow" element={<PostShow />} />
-      <Route path="/signin" element={<SignIn />} />
-      <Route path="/signup" element={<SignUp signup={SignUp}  />} />
-      <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/postedit" element={<PostEdit />} />
+        <Route path="/postindex" element={<PostIndex />} />
+        <Route path="/postnew" element={<PostNew />} />
+        <Route path="/myposts" element={<PostProtectedIndex />} />
+        <Route path="/postshow" element={<PostShow />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp signup={SignUp}  />} />
+        <Route path="*" element={<NotFound />} />
     </Routes>
     <Footer />
     </>

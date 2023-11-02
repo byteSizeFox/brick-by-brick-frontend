@@ -11,7 +11,7 @@ describe("sign in page", () => {
         )
         const greetingLink = screen.getByRole('heading', {
             name: /welcome back!/i
-          })
+        })
         expect(greetingLink).toBeInTheDocument()
     })
 })
