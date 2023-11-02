@@ -17,7 +17,7 @@ import { Route, Routes } from 'react-router-dom'
  
 function App() {
   return (
-    <>
+    <>  
     <Header />
     <Routes>
       <Route path="/" element={<Home />} />
@@ -27,7 +27,7 @@ function App() {
       <Route path="/myposts" element={<PostProtectedIndex />} />
       <Route path="/postshow" element={<PostShow />} />
       <Route path="/signin" element={<SignIn />} />
-      <Route path="/signup" element={<SignUp />} />
+      <Route path="/signup" element={<SignUp signup={SignUp}  />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
     <Footer />
