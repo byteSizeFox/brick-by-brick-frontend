@@ -9,8 +9,8 @@ describe("sign in page", () => {
                 <SignIn />
             </BrowserRouter>
         )
-        const greetingLink = screen.getByRole('heading', {
-            name: /welcome back!/i
+        const greetingLink = screen.getByRole('heading', { 
+            name: /welcome back!/i 
         })
         expect(greetingLink).toBeInTheDocument()
     })
