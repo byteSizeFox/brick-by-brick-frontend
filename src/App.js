@@ -14,6 +14,7 @@ import './App.css'
 import mockPosts from './mockPosts'
 import mockUsers from './mockUsers'
 import { Route, Routes } from 'react-router-dom'
+
  
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/postedit" element={<PostEdit />} />
-            <Route path="/postindex" element={<PostIndex />} />
+            <Route path="/postindex" element={<PostIndex posts={posts} />} />
             <Route path="/postnew" element={<PostNew />} />
             <Route path="/myposts" element={<PostProtectedIndex />} />
             <Route path="/postshow" element={<PostShow />} />
