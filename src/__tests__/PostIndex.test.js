@@ -6,11 +6,11 @@ import mockPosts from '../mockPosts'
 describe('<PostIndex />', () => {
     it('has an image', () => {
       render(
-        <BrowserRouter>
-          <PostIndex posts={mockPosts} />
-        </BrowserRouter>
-      )
-      mockPosts.forEach((post) => {
+            <BrowserRouter>
+                <PostIndex posts={mockPosts} />
+            </BrowserRouter>
+        )
+        mockPosts.forEach((post) => {
             const altTxt = screen.getByRole('heading', {
                 name: /title: post1/i
             })
