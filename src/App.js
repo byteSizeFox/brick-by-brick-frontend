@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import PostEdit from './pages/PostEdit'
@@ -11,12 +11,14 @@ import SignUp from './pages/SignUp'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import './App.css'
+import './PostIndex.css'
 import mockPosts from './mockPosts'
 import mockUsers from './mockUsers'
 import { Route, Routes } from 'react-router-dom'
 
- 
 function App() {
+    const [posts, setPosts] = useState(mockPosts)
+
   return (
     <>  
         <Header />

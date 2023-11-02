@@ -12,7 +12,7 @@ return (
   <img src={collage} alt="LEGO Collage" className="collage-imgage"/>
   
   <Card
-  classsName="card"
+  classsName="home-card"
   style={{
     width: '25rem'
     
