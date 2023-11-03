@@ -35,10 +35,10 @@ return (
                 <Input id="title" name="title" placeholder="Build title" type="string" onChange={handleChange} value={newPost.title}/>
             </FormGroup>
             <FormGroup>
-                <Label for="time-spent">
-                    Time-Spent
+                <Label for="timeSpent">
+                    Time Spent
                 </Label>
-                <Input id="time-spent" name="time-spent" placeholder="How much time did you spend on your build?" type="string" onChange={handleChange} value={newPost.timeSpent}/>
+                <Input id="timeSpent" name="timeSpent" placeholder="How long did it take you to build?" type="string" onChange={handleChange} value={newPost.timeSpent}/>
             </FormGroup>
             <FormGroup>
                 <Label for="difficulty">
