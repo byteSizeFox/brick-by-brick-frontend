@@ -19,6 +19,25 @@ import { Route, Routes } from 'react-router-dom'
 function App() {
     const [posts, setPosts] = useState(mockPosts)
 
+    const readPost = () => {
+        fetch("http://localhost:3000/postindex")
+        .then((response) => response.json())
+        .then((payload) => setPosts(payload))
+        .catch((errors) => console.log("Post read errors:", errors))
+    }
+    const createPost = (newPost) => {
+      fetch("http://localhost:3000/postindex", {
+        body: JSON.stringify(newPost),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        method: "POST"
+      })
+        .then((response) => response.json())
+        .then(() => readPost())
+        .catch((errors) => console.log("Post create error:", errors))
+    }
+
   return (
     <>  
         <Header />
@@ -26,7 +45,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/postedit" element={<PostEdit />} />
             <Route path="/postindex" element={<PostIndex posts={posts} />} />
-            <Route path="/postnew" element={<PostNew />} />
+            <Route path="/postnew" element={<PostNew createPost={createPost} />} />
             <Route path="/myposts" element={<PostProtectedIndex />} />
             <Route path="/postshow" element={<PostShow />} />
             <Route path="/signin" element={<SignIn />} />
