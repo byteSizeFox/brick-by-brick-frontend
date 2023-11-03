@@ -19,14 +19,17 @@ import { Route, Routes } from 'react-router-dom'
 function App() {
     const [posts, setPosts] = useState(mockPosts)
 
-  return (
+    const createPost = (newBuild) => {
+        console.log("newBuild", newBuild)
+    }
+    return (
     <>  
         <Header />
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/postedit" element={<PostEdit />} />
             <Route path="/postindex" element={<PostIndex posts={posts} />} />
-            <Route path="/postnew" element={<PostNew />} />
+            <Route path="/postnew" element={<PostNew createPost={createPost} />} />
             <Route path="/myposts" element={<PostProtectedIndex />} />
             <Route path="/postshow" element={<PostShow />} />
             <Route path="/signin" element={<SignIn />} />
