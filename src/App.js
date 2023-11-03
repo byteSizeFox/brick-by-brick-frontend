@@ -19,26 +19,10 @@ import { Route, Routes } from 'react-router-dom'
 function App() {
     const [posts, setPosts] = useState(mockPosts)
 
-    const readPost = () => {
-        fetch("http://localhost:3000/postindex")
-        .then((response) => response.json())
-        .then((payload) => setPosts(payload))
-        .catch((errors) => console.log("Post read errors:", errors))
+    const createPost = (newBuild) => {
+        console.log("newBuild", newBuild)
     }
-    const createPost = (newPost) => {
-      fetch("http://localhost:3000/postindex", {
-        body: JSON.stringify(newPost),
-        headers: {
-          "Content-Type": "application/json"
-        },
-        method: "POST"
-      })
-        .then((response) => response.json())
-        .then(() => readPost())
-        .catch((errors) => console.log("Post create error:", errors))
-    }
-
-  return (
+    return (
     <>  
         <Header />
         <Routes>
