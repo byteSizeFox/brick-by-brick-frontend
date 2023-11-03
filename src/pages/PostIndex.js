@@ -29,7 +29,7 @@ function PostIndex ({ posts }) {
                                         {`Made By: ${post.userName}`}
                                     </CardSubtitle>
                                     <Button>
-                                        <NavLink to={`/postsshow/${post.id}`} className="nav-link">
+                                        <NavLink to={`/postshow/${post.id}`} className="nav-link">
                                         See more details
                                         </NavLink>
                                     </Button>

@@ -4,7 +4,7 @@ import PostIndex from '../pages/PostIndex'
 import mockPosts from '../mockPosts'
 
 describe('<PostIndex />', () => {
-    it('has an image', () => {
+    it('has a heading', () => {
       render(
             <BrowserRouter>
                 <PostIndex posts={mockPosts} />
