@@ -17,27 +17,37 @@ function Header(props) {
     const toggleNavbar = () => setCollapsed(!collapsed);
   
     return (
-      <div>
-        <Navbar color="warning" light>
-          <NavbarBrand href="/" className="logo-header">
-          <img src={logo} alt="brick-logo" width="70" height="70" />
-            Brick By Brick
-          </NavbarBrand>
-          <NavbarToggler onClick={toggleNavbar} className="me-2" />
-          <Collapse isOpen={!collapsed} navbar>
-            <Nav navbar>
-              <NavItem>
-                <NavLink to="/postindex">See all Builds</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink to="/postnew">
-                  Post your new Build
-                </NavLink>
-              </NavItem>
-            </Nav>
-          </Collapse>
-        </Navbar>
-      </div>
+        <div>
+            <Navbar color="warning" light>
+                <NavbarBrand href="/" className="logo-header">
+                    <img 
+                        src={logo} 
+                        alt="brick-logo" 
+                        width="70" 
+                        height="70" 
+                    />
+                    Brick By Brick
+                </NavbarBrand>
+                <NavbarToggler 
+                    onClick={toggleNavbar} 
+                    className="me-2" 
+                />
+                <Collapse isOpen={!collapsed} navbar>
+                    <Nav navbar>
+                        <NavItem>
+                            <NavLink to="/postindex">
+                                See all Builds
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink to="/postnew">
+                                Post your new Build
+                            </NavLink>
+                        </NavItem>
+                    </Nav>
+                </Collapse>
+            </Navbar>
+        </div>
     );
   }
 

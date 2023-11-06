@@ -6,7 +6,7 @@ function PostShow({ posts }) {
   const { id } = useParams()
   let currentPost = posts?.find((post) => post.id === +id)
 
-  return (
+    return (
         <>
             <Card className="post-show-card">
             <img
@@ -33,14 +33,21 @@ function PostShow({ posts }) {
                         {currentPost.review}
                     </CardText>
                 <CardBody>
-                    <NavLink to={`/postedit/${currentPost.id}`} >
-                        <Button id="post-show-edit-button">
+                    <NavLink to="/postindex" >
+                    <Button id="post-show-back-button" to="/postindex">
+                        Back
+                    </Button>
+                    </NavLink>
+                    <NavLink to={`/postedit/${currentPost.id}`}>
+                        <Button id="post-show-edit-button" to={`/postedit/${currentPost.id}`}>
                             Edit
                         </Button>
                     </NavLink>
-                    <Button id="post-show-delete-button" to="#">
+                    <NavLink to="/postindex">
+                    <Button id="post-show-delete-button" to="/postindex">
                         Delete
                     </Button>
+                    </NavLink>
                 </CardBody>
             </Card>
         </>

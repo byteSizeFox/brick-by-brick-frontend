@@ -208,6 +208,23 @@ export default PostIndex
         </Form>
 
 ```
+```jsx
+<FormGroup>
+                <Label for="addimage">
+                    Add Image
+                </Label>
+                <Input
+                id="exampleFile"
+                name="file"
+                type="file"
+                onChange={handleChange}
+                value={newPost.image}
+                />
+                <FormText>
+                    Select your image to upload.
+                </FormText>
+            </FormGroup>
+```
 
 ### How to add an image to rails
 
