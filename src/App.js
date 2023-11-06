@@ -31,7 +31,7 @@ function App() {
         <Header />
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/postedit" element={<PostEdit />} />
+            <Route path="/postedit/:id" element={<PostEdit />} />
             <Route path="/postindex" element={<PostIndex posts={posts} />} />
             <Route path="/postnew" element={<PostNew createPost={createPost} />} />
             <Route path="/myposts" element={<PostProtectedIndex />} />

@@ -11,6 +11,7 @@
 .home-card {
     float: right;
     text-align: left;
+    width: '25rem'
 }
     
 .not-found {
@@ -55,5 +56,94 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.home-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 80vh;
+}
+.post-show-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    padding-left: 50vh;
+    padding-right: 50vh;
+    padding-bottom: 20vh;
+    padding-top: 1vh;
+}
+.index-container {
+    flex-direction: row ;
+    flex-wrap: wrap;
+    padding-bottom: 20vh;
+    padding-top: 1vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit);
+    grid-gap: auto;
+    justify-items: center;
 
 }
+
+/*-------------------*/
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Adjusts space between items */
+    gap: 20px; /* Adjusts gap between items */
+  }
+  
+  .card {
+    background-color: #f1f1f1; /* Example background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Box shadow for depth */
+    margin: 10px; /* Space around cards */
+    flex-basis: calc(33% - 20px); /* Adjusts card base size, subtract the gap */
+    /* If you want the cards to be more responsive on different screens, you might use media queries to adjust flex-basis */
+  }
+  
+  .card img {
+    width: 100%; /* Makes image fill card */
+    border-radius: 10px 10px 0 0; /* Rounded corners on top */
+  }
+  
+  .card-content {
+    padding: 16px; /* Padding inside the card */
+  }
+  
+  .card-title {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+  }
+  
+  .card-rating {
+    font-size: 1em;
+    margin-bottom: 1em;
+  }
+  
+  .card button {
+    background-color: #4CAF50; /* Button color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  /* Responsive adjustments with media queries */
+  @media (max-width: 600px) {
+    .card {
+      flex-basis: calc(50% - 20px); /* Adjusts for smaller screens */
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .card {
+      flex-basis: 100%; /* Full width on very small screens */
+    }
+  }
+  

@@ -9,9 +9,10 @@ function PostShow({ posts }) {
   return (
     <>
           <Card
-      style={{
-        width: '18rem'
-      }}
+    //   style={{
+    //     width: '18rem'
+    //   }}
+    className="post-show-card"
     >
       <img
         alt="post-show-image"
@@ -19,7 +20,7 @@ function PostShow({ posts }) {
       />
         <CardBody>
             <CardTitle tag="h5">
-            {currentPost.userName}'s {currentPost.title} Build
+            {currentPost.userName}'s "{currentPost.title}" Build
             </CardTitle>
         </CardBody>
             <ListGroup flush>
@@ -37,12 +38,12 @@ function PostShow({ posts }) {
             {currentPost.review}
             </CardText>
         <CardBody>
-            <CardLink href="#">
-            Card Link
-            </CardLink>
-            <CardLink href="#">
-            Another Card Link
-            </CardLink>
+            <Button to="/postedit/:id">
+            Edit
+            </Button>
+            <Button to="#">
+            Delete
+            </Button>
         </CardBody>
     </Card>
     </>
