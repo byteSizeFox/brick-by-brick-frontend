@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate, useParams, NavLink } from 'react-router-dom'
 import { Form, FormGroup, Label, Input, Button } from "reactstrap"
 
 
 function PostEdit({ posts, updatePost }) {
     const {id} = useParams()
     let currentPost = posts?.find(posts => posts.id === +id)
-    const [ editPost, setEditPost] = useState({
-        title: currentPost.title,
-        timeSpent: currentPost.timeSpent,
-        difficulty: currentPost.difficulty,
-        price: currentPost.price,
-        review: currentPost.review,
-        image: currentPost.image
-    })
+    const [ editPost, setEditPost] = useState([{
+        title: currentPost?.title,
+        timeSpent: currentPost?.timeSpent,
+        difficulty: currentPost?.difficulty,
+        price: currentPost?.price,
+        review: currentPost?.review,
+        image: currentPost?.image
+    }])
     console.log('editPost', editPost)
 
     const handleChange = (e) => {
@@ -21,19 +21,21 @@ function PostEdit({ posts, updatePost }) {
     }
     const navigate = useNavigate()
     const handleSubmit = () => {
-        updatePost(editPost, currentPost.id)
-        navigate('/post')
+        updatePost(editPost, currentPost?.id)
+        navigate('/postshow')
     }
 
   return (
-    <div>
-      <h2 className="add-a-post">Add your Build!</h2>
+    <div className="edit-a-post">
+      <h2 className="edit-header">Edit your Build!</h2>
+            
         <Form className="edit-post-form">
-            <FormGroup>
+
+                <FormGroup>
                 <Label for="title">
                     Title
                 </Label>
-                <Input id="title" name="title" placeholder="Build title" type="string" onChange={handleChange} value={editPost.title}/>
+                <Input id="title" name="title" placeholder="Name your Build" type="string" onChange={handleChange} value={editPost.title}/>
             </FormGroup>
             <FormGroup>
                 <Label for="timeSpent">
@@ -68,10 +70,13 @@ function PostEdit({ posts, updatePost }) {
                 <Input id="image" name="image" placeholder="Place your image url here." type="url" onChange={handleChange} value={editPost.image}
                 />
             </FormGroup>
-            < Button onClick={handleSubmit} name="submit">
-                Submit
-            </Button>
+            <NavLink>
+                < Button onClick={handleSubmit} name="submit">
+                    Submit
+                </Button>
+            </NavLink>
         </Form>
+
     </div>
   )
 }

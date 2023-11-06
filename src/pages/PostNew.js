@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, FormGroup, Label, Input, Button } from "reactstrap"
+import { Form, FormGroup, FormText, Label, Input, Button } from "reactstrap"
 import { useNavigate } from "react-router-dom";
 
 function PostNew ({createPost}) {
@@ -50,22 +50,28 @@ return (
                 <Label for="price">
                     Price
                 </Label>
-                <Input id="price" name="price" placeholder="How much did your build cost?" type="url" onChange={handleChange} value={newPost.price}
+                <Input id="price" name="price" placeholder="How much did your build cost?" type="string" onChange={handleChange} value={newPost.price}
                 />
             </FormGroup>
             <FormGroup>
                 <Label for="review">
                     Review
                 </Label>
-                <Input id="review" name="review" placeholder="Place your review of the build here." type="url" onChange={handleChange} value={newPost.review}
+                <Input id="review" name="review" placeholder="Place your review of the build here." type="string" onChange={handleChange} value={newPost.review}
                 />
             </FormGroup>
             <FormGroup>
-                <Label for="image">
-                    Image
+                <Label for="addimage">
+                    Add Image
                 </Label>
-                <Input id="image" name="image" placeholder="Place your image url here." type="url" onChange={handleChange} value={newPost.image}
+                <Input
+                id="exampleFile"
+                name="file"
+                type="file"
                 />
+                <FormText>
+                    Select your image to upload.
+                </FormText>
             </FormGroup>
             < Button onClick={handleSubmit} name="submit">
                 Submit

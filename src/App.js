@@ -25,6 +25,9 @@ function App() {
     const readPost = (id) => {
         console.log("readPost", id)
     }
+    const updatePost = (editPost, id) => {
+        console.log("editPost:", editPost, id)
+    }
 
     return (
     <>  
