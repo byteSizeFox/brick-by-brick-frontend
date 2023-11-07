@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Home from './pages/Home'
 import NotFound from './pages/NotFound'
 import PostEdit from './pages/PostEdit'
@@ -17,6 +17,7 @@ import mockUsers from './mockUsers'
 import { Route, Routes } from 'react-router-dom'
 
 function App() {
+    const [currentUser, setCurrentUser] = useState(mockUsers)
     const [posts, setPosts] = useState(mockPosts)
 
     const createPost = (newBuild) => {
@@ -25,6 +26,13 @@ function App() {
     const readPost = (id) => {
         console.log("readPost", id)
     }
+    useEffect(() => {
+        const loggedIn = localStorage.getItem("currentUser")
+        if(loggedIn) {
+          setCurrentUser(JSON.parse(loggedIn))
+        }
+        readPost()
+    }, [])
     const updatePost = (editPost, id) => {
         console.log("editPost:", editPost, id)
     }
@@ -37,10 +45,10 @@ function App() {
             <Route path="/postedit/:id" element={<PostEdit />} />
             <Route path="/postindex" element={<PostIndex posts={posts} />} />
             <Route path="/postnew" element={<PostNew createPost={createPost} />} />
-            <Route path="/myposts" element={<PostProtectedIndex />} />
+            <Route path="/myposts" element={<PostProtectedIndex currentUser={currentUser} posts={posts} />} />
             <Route path="/postshow/:id" element={<PostShow posts={posts} />} />
             <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUp signup={SignUp}  />} />
+            <Route path="/signup" element={<SignUp signup={SignUp} />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
