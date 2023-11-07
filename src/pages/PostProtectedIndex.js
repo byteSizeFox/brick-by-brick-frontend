@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom"
 
 
 const PostProtectedIndex = ({posts, currentUser}) => {
-    const currentPosts = posts.filter(post => post.user_id === 1)
+    const currentPosts = posts.filter(post => post.user_id === currentUser.id)
     return (
         <>
             <main className="container"> 

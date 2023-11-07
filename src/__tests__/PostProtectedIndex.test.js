@@ -4,6 +4,7 @@ import '@testing-library/jest-dom';
 import PostProtectedIndex from '../pages/PostProtectedIndex';
 import mockPosts from '../mockPosts'
 import { BrowserRouter } from 'react-router-dom';
+import mockUsers from '../mockUsers'
 
 const currentUser = { id: 1};
 
