@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 import { useNavigate, NavLink } from 'react-router-dom'
 import { Card, CardBody, CardTitle, CardSubtitle, CardText } from "reactstrap"
 
-const SignIn = ({ login }) => {
+const SignIn = ({ signin }) => {
   const formRef = useRef()
   const navigate = useNavigate()
   const handleSubmit = (e) => {
@@ -12,7 +12,7 @@ const SignIn = ({ login }) => {
     const userInfo = {
       "user": { email: data.email, password: data.password }
     }
-    login(userInfo)
+    signin(userInfo)
     navigate('/')
     e.target.reset()
   }

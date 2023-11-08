@@ -13,7 +13,7 @@ const Home = () => {
                     alt="LEGO Collage" 
                     className="collage-image"
                 />
-                <Card classsName="home-card">
+                <Card className="home-card">
                     <CardBody>
                         <CardTitle tag="h5">
                             Welcome to BrickByBrick!

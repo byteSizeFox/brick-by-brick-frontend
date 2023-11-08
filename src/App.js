@@ -64,7 +64,7 @@ function App() {
         })
         .catch(error => console.log("login errors: ", error))
     }
-    
+
     const logout = () => {
         fetch(`${url}/logout`, {
             headers: {
