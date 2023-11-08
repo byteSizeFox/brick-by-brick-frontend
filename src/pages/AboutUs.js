@@ -17,10 +17,10 @@ const AboutUs = () => {
                     width: '18rem'
                     }}
                 >
-                <img
-                    alt="a lego version of anabella"
-                    src= {anabella}
-                />
+                    <img
+                        alt="a lego version of anabella"
+                        src= {anabella}
+                    />
                     <CardBody>
                         <CardTitle tag="h5">
                             <span className="font-link">
@@ -40,7 +40,7 @@ const AboutUs = () => {
                             />
                         </CardLink>
                         <CardLink href="https://www.linkedin.com/in/anabella-sandino-298128293/" target="_blank">
-                        <img 
+                            <img 
                                 src = {linkedinlogo}
                                 alt = "linked in logo" 
                                 className = "linkedin-logo"
@@ -54,10 +54,10 @@ const AboutUs = () => {
                     width: '18rem'
                     }}
                 >
-                <img
-                    alt="a lego version of louis"
-                    src= {louis}
-                />
+                    <img
+                        alt="a lego version of louis"
+                        src= {louis}
+                    />
                     <CardBody>
                         <CardTitle tag="h5">
                             <span className="font-link">
@@ -91,10 +91,10 @@ const AboutUs = () => {
                     width: '18rem'
                     }}
                 >
-                <img
-                    alt="a lego version of mal"
-                    src= {mal}
-                />
+                    <img
+                        alt="a lego version of mal"
+                        src= {mal}
+                    />
                     <CardBody>
                         <CardTitle tag="h5">
                             <span className="font-link">
@@ -128,10 +128,10 @@ const AboutUs = () => {
                     width: '18rem'
                     }}
                 >
-                <img
-                    alt="a lego version of shaun"
-                    src= {shaun}
-                />
+                    <img
+                        alt="a lego version of shaun"
+                        src= {shaun}
+                    />
                     <CardBody>
                         <CardTitle tag="h5">
                             <span className="font-link">
