@@ -33,7 +33,7 @@ function Header(props) {
                     className="me-2" 
                 />
                 <Collapse isOpen={!collapsed} navbar>
-                    <Nav navbar>
+                    <Nav id="navbar-links" navbar>
                         <NavItem>
                             <NavLink to="/postindex">
                                 See all Builds

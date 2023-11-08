@@ -209,3 +209,6 @@
 #new-post-submit-button {
     background-color: rgb(7, 213, 7);
 }
+#navbar-links {
+    justify-content: right;
+}
