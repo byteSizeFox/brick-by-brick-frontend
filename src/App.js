@@ -115,7 +115,7 @@ function App() {
             <Route path="/myposts" element={<PostProtectedIndex currentUser={currentUser} posts={posts} />} />
             <Route path="/mypostshow/:id" element={<PostProtectedShow currentUser={currentUser} posts={posts} />} />
             <Route path="/postshow/:id" element={<PostShow posts={posts} />} />
-            <Route path="/signin" element={<SignIn signin={signin} />} />
+            <Route path="/signin" element={<SignIn signin={SignIn} />} />
             <Route path="/signup" element={<SignUp signup={signup} />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="*" element={<NotFound />} />

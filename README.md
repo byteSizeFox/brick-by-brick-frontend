@@ -242,3 +242,10 @@ When you want to attach an image to a post, you can do something like this:
 In this case, params[:image] would be the image file that you're uploading. This could come from a form submission, for example.
 
 Please note that you'll need to have ActiveStorage set up in your Rails application for this to work. This typically involves running a migration that ActiveStorage provides, which will create the necessary tables in your database.
+
+FONT (index.html)
+```jsx
+<link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2family=Fuzzy+Bubbles:wght@700&display=swap" rel="stylesheet"> 
+```
