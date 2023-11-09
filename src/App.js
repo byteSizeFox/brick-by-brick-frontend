@@ -23,22 +23,25 @@ function App() {
     const [posts, setPosts] = useState([])
     const url = 'http://localhost:3000'
     
-    const readPost = (id) => {
+    
+    
+    const readPosts = () => {
         fetch(`${url}/posts`)
-        .then(response => response.json())
-        .then(payload => setPosts(payload))
-        .catch(error => console.log(error))
-        console.log("readPost", id)
+            .then(response => response.json())
+            .then(payload => setPosts(payload))
+            .catch(error => console.log("Error reading posts:", error));
     }
     
+    
+
     useEffect(() => {
         const loggedIn = localStorage.getItem("currentUser")
         if(loggedIn) {
             setCurrentUser(JSON.parse(loggedIn))
         }
-        readPost()
+        readPosts()
     }, [])
-
+    
     const signin = (userInfo) => {
         fetch(`${url}/login`, {
             body: JSON.stringify(userInfo), headers: {
@@ -55,11 +58,14 @@ function App() {
             return response.json()
         })
         .then(payload => {
+            localStorage.setItem("currentUser", JSON.stringify(payload))
             setCurrentUser(payload)
         })
         .catch(error => console.log("login errors: ", error))
     }
+
     const signup = (userInfo) => {
+        console.log("userInfo", userInfo)
         fetch(`${url}/signup`, {
             body: JSON.stringify(userInfo),
             headers: {
@@ -76,10 +82,12 @@ function App() {
             return response.json()
         })
         .then(payload => {
+            localStorage.setItem("currentUser", JSON.stringify(payload))
             setCurrentUser(payload)
         })
         .catch(error => console.log("login errors: ", error))
     }
+
     const logout = () => {
         fetch(`${url}/logout`, {
             headers: {
@@ -95,6 +103,7 @@ function App() {
         })
         .catch(error => console.log("log out errors: ", error))
     }
+
     const createPost = (newPost) => {
         fetch(`${url}/postnew`, {
         body: JSON.stringify(newPost),
@@ -104,9 +113,10 @@ function App() {
         method: "POST"
       })  
         .then((response) => response.json())
-        .then(() => readPost())
+        .then(() => readPosts())
         .catch((errors) => console.log("Post create errors", errors))
     }
+
     const updatePost = (editPost, id) => {
         fetch(`${url}/mypost/${id}`, {
           body: JSON.stringify(editPost),
@@ -116,9 +126,10 @@ function App() {
           method: "PATCH"
         })
         .then((response) => response.json())
-        .then(() => readPost())
+        .then(() => readPosts())
         .catch((errors) => console.log("Post update error", errors))
     }
+
     const deletePost = (id) => {
         fetch(`${url}/mypost/${id}`, {
           headers: {
@@ -127,15 +138,15 @@ function App() {
           method: "DELETE"
         })
           .then((response) => response.json())
-          .then(() => readPost())
+          .then(() => readPosts())
           .catch((errors) => console.log("delete errors:", errors))
-      }   
+    }   
 
     return (
     <>  
         <Header currentUser={currentUser} signin={signin} logout={logout} />
         <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home currentUser={currentUser} />} />
             <Route path="/postedit/:id" element={<PostEdit posts={posts} updatePost={updatePost} />} />
             <Route path="/postindex" element={<PostIndex posts={posts} />} />
             <Route path="/postnew" element={<PostNew createPost={createPost} />} />
@@ -149,7 +160,7 @@ function App() {
         </Routes>
         <Footer />
     </>
-  )
+    )
 }
 
 export default App

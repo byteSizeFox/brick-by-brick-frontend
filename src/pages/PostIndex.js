@@ -20,7 +20,7 @@ function PostIndex({ posts }) {
                             {post.title}
                         </CardTitle>
                         <CardSubtitle tag="h6">
-                            {`Made By: ${post.userName}`}
+                            {`Made By: ${post.username}`}
                         </CardSubtitle>
                         <Button>
                             <NavLink to={`/postshow/${post.id}`} className="nav-link">

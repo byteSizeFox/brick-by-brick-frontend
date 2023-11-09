@@ -53,11 +53,13 @@ function Header({ signin, currentUser, logout }) {
                                 See all Builds
                             </NavLink>
                         </NavItem>
+                        {currentUser && (
                         <NavItem>
                             <NavLink to="/postnew">
                                 Post your new Build
                             </NavLink>
                         </NavItem>
+                        )}
                         {currentUser && (
                         <>
                             <NavItem>

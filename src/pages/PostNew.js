@@ -42,6 +42,19 @@ function PostNew ({createPost}) {
                     />
                 </FormGroup>
                 <FormGroup>
+                    <Label for="username">
+                        Username
+                    </Label>
+                    <Input 
+                        id="username" 
+                        name="username" 
+                        placeholder="Build username" 
+                        type="string" 
+                        onChange={handleChange} 
+                        value={newPost.username}
+                    />
+                </FormGroup>
+                <FormGroup>
                     <Label for="timeSpent">
                         Time Spent
                     </Label>
