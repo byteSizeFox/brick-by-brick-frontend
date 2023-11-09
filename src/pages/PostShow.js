@@ -39,7 +39,7 @@ function PostShow({ posts }) {
                     </Button>
                     </NavLink>
                     <NavLink to={`/postedit/${currentPost.id}`}>
-                        <Button id="post-show-edit-button" to={`/postedit/${currentPost.id}`}>
+                        <Button id="post-show-edit-button">
                             Edit
                         </Button>
                     </NavLink>

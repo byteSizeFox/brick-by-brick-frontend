@@ -6,6 +6,7 @@ import { Form, FormGroup, Label, Input, Button } from "reactstrap"
 function PostEdit({ posts, updatePost }) {
     const {id} = useParams()
     let currentPost = posts?.find(posts => posts.id === +id)
+
     const [ editPost, setEditPost] = useState([{
         title: currentPost?.title,
         timeSpent: currentPost?.timeSpent,
@@ -14,15 +15,15 @@ function PostEdit({ posts, updatePost }) {
         review: currentPost?.review,
         image: currentPost?.image
     }])
-    console.log('editPost', editPost)
 
     const handleChange = (e) => {
-        setEditPost({...editPost, [e.target.title]: e.target.value})
+        setEditPost({...editPost, [e.target.title]: e.target.value })
     }
     const navigate = useNavigate()
+
     const handleSubmit = () => {
-        updatePost(editPost, currentPost?.id)
-        navigate('/postshow')
+        updatePost(editPost, currentPost.id)
+        navigate('/postindex')
     }
 
     return (

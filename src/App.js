@@ -21,10 +21,26 @@ import { Route, Routes } from 'react-router-dom'
 function App() {
     const [currentUser, setCurrentUser] = useState(null)
     const [posts, setPosts] = useState([])
-    const url = "http://localhost:3000"
+    const url = 'http://localhost:3000'
+    
+    const readPost = (id) => {
+        fetch(`${url}/posts`)
+        .then(response => response.json())
+        .then(payload => setPosts(payload))
+        .catch(error => console.log(error))
+        console.log("readPost", id)
+    }
+    
+    useEffect(() => {
+        const loggedIn = localStorage.getItem("currentUser")
+        if(loggedIn) {
+            setCurrentUser(JSON.parse(loggedIn))
+        }
+        readPost()
+    }, [])
 
     const signin = (userInfo) => {
-        fetch(`${url}/signin`, {
+        fetch(`${url}/login`, {
             body: JSON.stringify(userInfo), headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
@@ -64,7 +80,6 @@ function App() {
         })
         .catch(error => console.log("login errors: ", error))
     }
-
     const logout = () => {
         fetch(`${url}/logout`, {
             headers: {
@@ -74,48 +89,60 @@ function App() {
             method: "DELETE"
         })
         .then(payload => {
-            localStorage.removeItem("token")  
+            localStorage.removeItem("token")
+            localStorage.removeItem("currentUser")
             setCurrentUser(null)
         })
         .catch(error => console.log("log out errors: ", error))
     }
-        
-    
-
-    const createPost = (newBuild) => {
-        console.log("newBuild", newBuild)
+    const createPost = (newPost) => {
+        fetch(`${url}/postnew`, {
+        body: JSON.stringify(newPost),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        method: "POST"
+      })  
+        .then((response) => response.json())
+        .then(() => readPost())
+        .catch((errors) => console.log("Post create errors", errors))
     }
-
-    const readPost = (id) => {
-        console.log("readPost", id)
-    }
-    
-    useEffect(() => {
-        const loggedIn = localStorage.getItem("currentUser")
-        if(loggedIn) {
-            setCurrentUser(JSON.parse(loggedIn))
-        }
-        readPost()
-    }, [])
-
     const updatePost = (editPost, id) => {
-        console.log("editPost:", editPost, id)
+        fetch(`${url}/mypost/${id}`, {
+          body: JSON.stringify(editPost),
+          headers: {
+            "Content-Type": "application/json"
+          },
+          method: "PATCH"
+        })
+        .then((response) => response.json())
+        .then(() => readPost())
+        .catch((errors) => console.log("Post update error", errors))
     }
-        
-    
+    const deletePost = (id) => {
+        fetch(`${url}/mypost/${id}`, {
+          headers: {
+            "Content-Type": "application/json"
+          },
+          method: "DELETE"
+        })
+          .then((response) => response.json())
+          .then(() => readPost())
+          .catch((errors) => console.log("delete errors:", errors))
+      }   
 
     return (
     <>  
         <Header currentUser={currentUser} signin={signin} logout={logout} />
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/postedit/:id" element={<PostEdit />} />
+            <Route path="/postedit/:id" element={<PostEdit posts={posts} updatePost={updatePost} />} />
             <Route path="/postindex" element={<PostIndex posts={posts} />} />
             <Route path="/postnew" element={<PostNew createPost={createPost} />} />
             <Route path="/myposts" element={<PostProtectedIndex currentUser={currentUser} posts={posts} />} />
-            <Route path="/mypostshow/:id" element={<PostProtectedShow currentUser={currentUser} posts={posts} />} />
+            <Route path="/mypostshow/:id" element={<PostProtectedShow currentUser={currentUser} posts={posts} deletePost={deletePost} />} />
             <Route path="/postshow/:id" element={<PostShow posts={posts} />} />
-            <Route path="/signin" element={<SignIn signin={SignIn} />} />
+            <Route path="/signin" element={<SignIn signin={signin} />} />
             <Route path="/signup" element={<SignUp signup={signup} />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="*" element={<NotFound />} />
