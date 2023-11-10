@@ -242,3 +242,64 @@ When you want to attach an image to a post, you can do something like this:
 In this case, params[:image] would be the image file that you're uploading. This could come from a form submission, for example.
 
 Please note that you'll need to have ActiveStorage set up in your Rails application for this to work. This typically involves running a migration that ActiveStorage provides, which will create the necessary tables in your database.
+
+FONT (index.html)
+```jsx
+<link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2family=Fuzzy+Bubbles:wght@700&display=swap" rel="stylesheet"> 
+```
+
+### Signin Card
+
+```jsx
+<Card 
+					color="warning"
+					style={{
+					width: '18rem'
+				}}
+			>
+			<img
+				alt="lego-spongebob"
+				src="https://images.unsplash.com/photo-1558647913-d1c0e5d478fa?auto=format&fit=crop&q=60&w=800&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTI4fHxsZWdvJTIwbG9naW58ZW58MHx8MHx8fDA%3D"
+			/>
+					<CardBody>
+						<CardTitle tag="h5">
+							Welcome Back!
+						</CardTitle>
+						<CardSubtitle
+							className="mb-2 text-muted"
+							tag="h6"
+						>
+							Keep on Building!
+						</CardSubtitle>
+						<CardText>
+							<div>
+								<form ref={formRef} onSubmit={handleSubmit}>
+									Email: <input type="email" name='email' placeholder="email" />
+									<br/>
+									Password: <input type="password" name='password' placeholder="password" />
+									<br/>
+									<input type='submit' value="Login" />
+								</form>
+								<br />
+									<div> Not registered yet, 
+										<NavLink to="/signup">Sign Up</NavLink> 
+									</div>
+							</div>
+						</CardText>
+					</CardBody>
+				</Card>
+```
+
+### ReadPost
+```jsx
+ const readPost = (id) => {
+        fetch(`${url}/posts`)
+        .then(response => response.json())
+        .then(payload => setPosts(payload))
+        .catch(error => console.log(error))
+        console.log("readPost", id)
+    }
+    
+```

@@ -7,14 +7,28 @@ import {
     Nav,
     NavItem,
   } from 'reactstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png'
 
 
-function Header(props) {
+function Header({ signin, currentUser, logout }) {
+
+    const navigate = useNavigate()
+
+    const handleClick = () => {
+        logout()
+        navigate("/")
+    }
+
+    const handleLogIn = () => {
+        navigate("/signin")
+    }
+
     const [collapsed, setCollapsed] = useState(true);
   
     const toggleNavbar = () => setCollapsed(!collapsed);
+
+
   
     return (
         <div>
@@ -39,11 +53,34 @@ function Header(props) {
                                 See all Builds
                             </NavLink>
                         </NavItem>
+                        {currentUser && (
                         <NavItem>
                             <NavLink to="/postnew">
                                 Post your new Build
                             </NavLink>
                         </NavItem>
+                        )}
+                        {currentUser && (
+                        <>
+                            <NavItem>
+                                <NavLink onClick={handleClick}>
+                                    Logout
+                                </NavLink>
+                            </NavItem>
+                        </>
+                        )}
+                        {!currentUser && (
+                            <>
+                                <NavItem>
+                                    <NavLink 
+                                        signin={signin} 
+                                        to={`/signin`} 
+                                        onClick={handleLogIn}>
+                                        Login
+                                    </NavLink>
+                                </NavItem>
+                            </>
+                        )}
                     </Nav>
                 </Collapse>
             </Navbar>

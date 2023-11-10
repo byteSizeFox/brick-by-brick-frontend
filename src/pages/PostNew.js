@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { Form, FormGroup, FormText, Label, Input, Button } from "reactstrap"
 import { useNavigate } from "react-router-dom";
 
-function PostNew ({createPost}) {
+function PostNew ({createPost, currentUser}) {
     const [newPost, setNewPost ] = useState({
         title: "",
-        timeSpent: "",
+        time_spent: "",
         difficulty: "",
         price: "",
         review: "",
         image: "",
+        user_id: currentUser?.id
     })
+    console.log("currentUser:", currentUser)
 
     const navigate = useNavigate()
 
@@ -42,16 +44,29 @@ function PostNew ({createPost}) {
                     />
                 </FormGroup>
                 <FormGroup>
+                    <Label for="username">
+                        Username
+                    </Label>
+                    <Input 
+                        id="username" 
+                        name="username" 
+                        placeholder="Build username" 
+                        type="string" 
+                        onChange={handleChange} 
+                        value={newPost.username}
+                    />
+                </FormGroup>
+                <FormGroup>
                     <Label for="timeSpent">
                         Time Spent
                     </Label>
                     <Input 
                         id="timeSpent" 
-                        name="timeSpent" 
+                        name="time_spent" 
                         placeholder="How long did it take you to build?" 
                         type="string" 
                         onChange={handleChange} 
-                        value={newPost.timeSpent}
+                        value={newPost.time_spent}
                     />
                 </FormGroup>
                 <FormGroup>

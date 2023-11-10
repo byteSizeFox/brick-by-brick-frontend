@@ -19,45 +19,149 @@ import mockUsers from './mockUsers'
 import { Route, Routes } from 'react-router-dom'
 
 function App() {
-    const [currentUser, setCurrentUser] = useState(mockUsers)
-    const [posts, setPosts] = useState(mockPosts)
+    const [currentUser, setCurrentUser] = useState(null)
+    const [posts, setPosts] = useState([])
+    const url = 'http://localhost:3000'
+    console.log("currentUser:", currentUser)
+    
+    
+    
+    const readPosts = () => {
+        fetch(`${url}/posts`)
+            .then(response => response.json())
+            .then(payload => setPosts(payload))
+            .catch(error => console.log("Error reading posts:", error));
+    }
+    console.log(posts)
+    
 
-    const createPost = (newBuild) => {
-        console.log("newBuild", newBuild)
-    }
-    const readPost = (id) => {
-        console.log("readPost", id)
-    }
     useEffect(() => {
         const loggedIn = localStorage.getItem("currentUser")
         if(loggedIn) {
-          setCurrentUser(JSON.parse(loggedIn))
+            setCurrentUser(JSON.parse(loggedIn))
         }
-        readPost()
+        readPosts()
     }, [])
-    const updatePost = (editPost, id) => {
-        console.log("editPost:", editPost, id)
+    
+    const signin = (userInfo) => {
+        fetch(`${url}/login`, {
+            body: JSON.stringify(userInfo), headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+             method: "POST"
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw Error(response.statusText)
+            }
+            localStorage.setItem("token", response.headers.get("Authorization"))
+            return response.json()
+        })
+        .then(payload => {
+            localStorage.setItem("currentUser", JSON.stringify(payload))
+            setCurrentUser(payload)
+        })
+        .catch(error => console.log("login errors: ", error))
     }
+
+    const signup = (userInfo) => {
+        console.log("userInfo", userInfo)
+        fetch(`${url}/signup`, {
+            body: JSON.stringify(userInfo),
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            method: "POST"
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw Error(response.statusText)
+            }
+            localStorage.setItem("token", response.headers.get("Authorization"))
+            return response.json()
+        })
+        .then(payload => {
+            localStorage.setItem("currentUser", JSON.stringify(payload))
+            setCurrentUser(payload)
+        })
+        .catch(error => console.log("login errors: ", error))
+    }
+
+    const logout = () => {
+        fetch(`${url}/logout`, {
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": localStorage.getItem("token") 
+            },
+            method: "DELETE"
+        })
+        .then(payload => {
+            localStorage.removeItem("token")
+            localStorage.removeItem("currentUser")
+            setCurrentUser(null)
+        })
+        .catch(error => console.log("log out errors: ", error))
+    }
+
+    const createPost = (newPost) => {
+        fetch(`${url}/posts`, {
+        body: JSON.stringify(newPost),
+        headers: {
+          "Content-Type": "application/json"
+        },
+        method: "POST"
+      })  
+        .then((response) => response.json())
+        .then(() => readPosts())
+        .catch((errors) => console.log("Post create errors", errors))
+    }
+
+    const updatePost = (editPost, id) => {
+        fetch(`${url}/posts/${id}/edit`, {
+          body: JSON.stringify(editPost),
+          headers: {
+            "Content-Type": "application/json"
+          },
+          method: "PATCH"
+        })
+        .then((response) => response.json())
+        .then(() => readPosts())
+        .catch((errors) => console.log("Post update error", errors))
+    }
+
+    const deletePost = (id) => {
+        fetch(`${url}/posts/${id}`, {
+          headers: {
+            "Content-Type": "application/json"
+          },
+          method: "DELETE"
+        })
+          .then((response) => response.json())
+          .then(() => readPosts())
+          .catch((errors) => console.log("delete errors:", errors))
+    }   
 
     return (
     <>  
-        <Header />
+        <Header currentUser={currentUser} signin={signin} logout={logout} />
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/postedit/:id" element={<PostEdit />} />
+            <Route path="/" element={<Home currentUser={currentUser} />} />
+            <Route path="/postedit/:id" element={<PostEdit posts={posts} updatePost={updatePost} />} />
             <Route path="/postindex" element={<PostIndex posts={posts} />} />
-            <Route path="/postnew" element={<PostNew createPost={createPost} />} />
+            <Route path="/postnew" element={<PostNew createPost={createPost} currentUser={currentUser} />} />
             <Route path="/myposts" element={<PostProtectedIndex currentUser={currentUser} posts={posts} />} />
-            <Route path="/mypostshow/:id" element={<PostProtectedShow currentUser={currentUser} posts={posts} />} />
+            <Route path="/mypostshow/:id" element={<PostProtectedShow currentUser={currentUser} posts={posts} deletePost={deletePost} />} />
             <Route path="/postshow/:id" element={<PostShow posts={posts} />} />
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUp signup={SignUp} />} />
+            <Route path="/signin" element={<SignIn signin={signin} />} />
+            <Route path="/signup" element={<SignUp signup={signup} />} />
             <Route path="/aboutus" element={<AboutUs />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
     </>
-  )
+    )
 }
 
 export default App
