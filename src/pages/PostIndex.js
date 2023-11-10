@@ -6,12 +6,13 @@ function PostIndex({ posts }) {
   return (
     <>
         <main className="container"> 
+        {/* fix this later??? */}
             {posts?.map((post, index) => (
                 <Card className="card" color='warning' key={index} >
                     <CardImg
                     top
                     width="100%" 
-                    src={post.image}
+                    src={post?.image}
                     alt={`profile picture for ${post.title}`}
                     className="index-image" 
                     />

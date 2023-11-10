@@ -22,6 +22,7 @@ function App() {
     const [currentUser, setCurrentUser] = useState(null)
     const [posts, setPosts] = useState([])
     const url = 'http://localhost:3000'
+    console.log("currentUser:", currentUser)
     
     
     
@@ -31,7 +32,7 @@ function App() {
             .then(payload => setPosts(payload))
             .catch(error => console.log("Error reading posts:", error));
     }
-    
+    console.log(posts)
     
 
     useEffect(() => {
@@ -105,7 +106,7 @@ function App() {
     }
 
     const createPost = (newPost) => {
-        fetch(`${url}/postnew`, {
+        fetch(`${url}/posts`, {
         body: JSON.stringify(newPost),
         headers: {
           "Content-Type": "application/json"
@@ -118,7 +119,7 @@ function App() {
     }
 
     const updatePost = (editPost, id) => {
-        fetch(`${url}/mypost/${id}`, {
+        fetch(`${url}/posts/${id}/edit`, {
           body: JSON.stringify(editPost),
           headers: {
             "Content-Type": "application/json"
@@ -131,7 +132,7 @@ function App() {
     }
 
     const deletePost = (id) => {
-        fetch(`${url}/mypost/${id}`, {
+        fetch(`${url}/posts/${id}`, {
           headers: {
             "Content-Type": "application/json"
           },
@@ -149,7 +150,7 @@ function App() {
             <Route path="/" element={<Home currentUser={currentUser} />} />
             <Route path="/postedit/:id" element={<PostEdit posts={posts} updatePost={updatePost} />} />
             <Route path="/postindex" element={<PostIndex posts={posts} />} />
-            <Route path="/postnew" element={<PostNew createPost={createPost} />} />
+            <Route path="/postnew" element={<PostNew createPost={createPost} currentUser={currentUser} />} />
             <Route path="/myposts" element={<PostProtectedIndex currentUser={currentUser} posts={posts} />} />
             <Route path="/mypostshow/:id" element={<PostProtectedShow currentUser={currentUser} posts={posts} deletePost={deletePost} />} />
             <Route path="/postshow/:id" element={<PostShow posts={posts} />} />
