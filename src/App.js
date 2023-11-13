@@ -119,7 +119,8 @@ function App() {
     }
 
     const updatePost = (editPost, id) => {
-        console.log("editPost:", editPost, "id:", id)
+        console.log("editPost:", editPost)
+        console.log("id:", id)
         fetch(`${url}/posts/${id}`, {
           body: JSON.stringify(editPost),
           headers: {
