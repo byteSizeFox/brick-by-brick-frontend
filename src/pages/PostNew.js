@@ -10,6 +10,7 @@ function PostNew ({createPost, currentUser}) {
         price: "",
         review: "",
         image: "",
+        username: "",
         user_id: currentUser?.id
     })
     console.log("currentUser:", currentUser)
@@ -57,11 +58,11 @@ function PostNew ({createPost, currentUser}) {
                     />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="timeSpent">
+                    <Label for="time_spent">
                         Time Spent
                     </Label>
                     <Input 
-                        id="timeSpent" 
+                        id="time_spent" 
                         name="time_spent" 
                         placeholder="How long did it take you to build?" 
                         type="string" 
@@ -94,6 +95,20 @@ function PostNew ({createPost, currentUser}) {
                         value={newPost.price}
                     />
                 </FormGroup>
+                <FormGroup>
+                    <Label for="review">
+                        Review
+                    </Label>
+                    <Input 
+                        id="review" 
+                        name="review" 
+                        placeholder="Please enter your review" 
+                        type="string" 
+                        onChange={handleChange} 
+                        value={newPost.review}
+                    />
+                </FormGroup>
+                <FormGroup></FormGroup>
                 <FormGroup>
                     <Label for="image">
                         Image

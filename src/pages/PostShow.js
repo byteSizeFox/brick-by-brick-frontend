@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams, NavLink } from 'react-router-dom'
-import { Card, CardBody, CardTitle, CardText, Button, ListGroup, ListGroupItem } from "reactstrap"
+import { Card, CardImg, CardBody, CardTitle, CardText, Button, ListGroup, ListGroupItem } from "reactstrap"
+import defaultImage from '../assets/default-image.png'
 
 function PostShow({ posts }) {
     const { id } = useParams()
@@ -11,10 +12,14 @@ function PostShow({ posts }) {
         <>
             {currentPost &&
                 <Card className="post-show-card">
-                <img
-                    alt="post-show-image"
-                    src={currentPost.image}
-                />
+                    <CardImg
+                        top
+                        width="100%" 
+                        src={currentPost?.image || defaultImage}
+                        alt={`profile picture for ${currentPost.title}`}
+                        className="index-image"
+                        onError={(e) => { e.target.onerror = null; e.target.src = defaultImage; }}
+                    />
                     <CardBody>
                         <CardTitle tag="h5">
                             {currentPost.username}'s "{currentPost.title}" Build
@@ -38,16 +43,6 @@ function PostShow({ posts }) {
                         <NavLink to="/postindex" >
                         <Button id="post-show-back-button" to="/postindex">
                             Back
-                        </Button>
-                        </NavLink>
-                        <NavLink to={`/postedit/${currentPost.id}`}>
-                            <Button id="post-show-edit-button">
-                                Edit
-                            </Button>
-                        </NavLink>
-                        <NavLink to="/postindex">
-                        <Button id="post-show-delete-button" to="/postindex">
-                            Delete
                         </Button>
                         </NavLink>
                     </CardBody>
