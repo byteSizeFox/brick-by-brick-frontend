@@ -29,7 +29,7 @@ const PostEdit = ({ posts, updatePost, currentUser }) => {
     console.log("editPost:", editPost)
 
     const handleChange = (e) => {
-        setEditPost({...editPost, [e.target.title]: e.target.value })
+        setEditPost({...editPost, [e.target.name]: e.target.value })
     }
     const navigate = useNavigate()
 
