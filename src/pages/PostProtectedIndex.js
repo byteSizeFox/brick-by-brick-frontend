@@ -4,10 +4,10 @@ import { NavLink } from "react-router-dom"
 
 
 const PostProtectedIndex = ({posts, currentUser}) => {
-    const currentPosts = posts.filter(post => post.user_id === currentUser.id)
+    const currentPosts = posts?.filter(post => post.user_id === currentUser?.id)
     return (
         <>
-            <main className="container"> 
+            <main className="index-container"> 
                 {currentPosts?.map((post, index) => (
                     <Card className="card" color='warning' key={index} >
                         <CardImg
@@ -22,11 +22,18 @@ const PostProtectedIndex = ({posts, currentUser}) => {
                                 {post.title}
                             </CardTitle>
                             <CardSubtitle tag="h6">
-                                {`Made By: ${post.userName}`}
+                                {`Made By: ${post.username}`}
                             </CardSubtitle>
                             <Button>
-                                <NavLink to={`/postshow/${post.id}`} className="nav-link">
+                                <NavLink to={`/mypostshow/${post.id}`
+                                }>
                                     See more details
+                                </NavLink>
+                            </Button>
+                            <Button>
+                                <NavLink to={`/postedit/${post.id}`
+                                }>
+                                    Edit Post
                                 </NavLink>
                             </Button>
                         </CardBody>

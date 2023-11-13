@@ -119,7 +119,8 @@ function App() {
     }
 
     const updatePost = (editPost, id) => {
-        fetch(`${url}/posts/${id}/edit`, {
+        console.log("editPost:", editPost, "id:", id)
+        fetch(`${url}/posts/${id}`, {
           body: JSON.stringify(editPost),
           headers: {
             "Content-Type": "application/json"
@@ -130,6 +131,7 @@ function App() {
         .then(() => readPosts())
         .catch((errors) => console.log("Post update error", errors))
     }
+
 
     const deletePost = (id) => {
         fetch(`${url}/posts/${id}`, {
@@ -148,8 +150,8 @@ function App() {
         <Header currentUser={currentUser} signin={signin} logout={logout} />
         <Routes>
             <Route path="/" element={<Home currentUser={currentUser} />} />
-            <Route path="/postedit/:id" element={<PostEdit posts={posts} updatePost={updatePost} />} />
-            <Route path="/postindex" element={<PostIndex posts={posts} />} />
+            <Route path="/postedit/:id" element={<PostEdit posts={posts} updatePost={updatePost} currentUser={currentUser} />} />
+            <Route path="/postindex" element={<PostIndex posts={posts} currentUser={ currentUser }/>} />
             <Route path="/postnew" element={<PostNew createPost={createPost} currentUser={currentUser} />} />
             <Route path="/myposts" element={<PostProtectedIndex currentUser={currentUser} posts={posts} />} />
             <Route path="/mypostshow/:id" element={<PostProtectedShow currentUser={currentUser} posts={posts} deletePost={deletePost} />} />

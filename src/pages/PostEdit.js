@@ -3,18 +3,30 @@ import { useNavigate, useParams, NavLink } from 'react-router-dom'
 import { Form, FormGroup, Label, Input, Button } from "reactstrap"
 
 
-function PostEdit({ posts, updatePost }) {
+const PostEdit = ({ posts, updatePost, currentUser }) => {
     const {id} = useParams()
-    let currentPost = posts?.find(posts => posts.id === +id)
+    let currentPost = posts?.find(post => post.id === +id)
+    // let currentUserPosts = posts?.filter(post => post.user_id === currentUser.id)
+    // let currentPost = currentUserPosts?.find(post => post.id === +id)
 
-    const [ editPost, setEditPost] = useState([{
+    console.log("post:", posts)
+    console.log("currentUser", currentUser)
+    console.log("currentPost", currentPost)
+
+
+    const [ editPost, setEditPost] = useState({
+
+        image: currentPost?.image,
         title: currentPost?.title,
-        timeSpent: currentPost?.timeSpent,
+        time_spent: currentPost?.time_spent,
         difficulty: currentPost?.difficulty,
         price: currentPost?.price,
         review: currentPost?.review,
-        image: currentPost?.image
-    }])
+        user_id: currentUser?.id,
+        username: currentPost?.username
+        
+    })
+    console.log("editPost:", editPost)
 
     const handleChange = (e) => {
         setEditPost({...editPost, [e.target.title]: e.target.value })
@@ -22,8 +34,15 @@ function PostEdit({ posts, updatePost }) {
     const navigate = useNavigate()
 
     const handleSubmit = () => {
-        updatePost(editPost, currentPost.id)
-        navigate('/postindex')
+        updatePost(editPost, currentPost?.id)
+        navigate('/myposts')
+    }
+
+    if (!currentPost) {
+        return <div> Post not found </div>
+    }
+    if (!currentUser) {
+        return <div> You are not the owner of this post </div>
     }
 
     return (
@@ -37,23 +56,23 @@ function PostEdit({ posts, updatePost }) {
                     <Input 
                         id="title" 
                         name="title" 
-                        placeholder="Name your Build" 
+                        placeholder="title" 
                         type="string" 
                         onChange={handleChange} 
-                        value={editPost.title}
+                        value={editPost?.title}
                     />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="timeSpent">
+                    <Label for="time_spent">
                         Time Spent
                     </Label>
                     <Input 
-                        id="timeSpent" 
-                        name="timeSpent" 
+                        id="time_spent" 
+                        name="time_spent" 
                         placeholder="How long did it take you to build?" 
                         type="string" 
                         onChange={handleChange} 
-                        value={editPost.timeSpent}
+                        value={editPost?.time_spent}
                     />
                 </FormGroup>
                 <FormGroup>
@@ -66,7 +85,7 @@ function PostEdit({ posts, updatePost }) {
                         placeholder="What is the difficulty of your build?" 
                         type="number" 
                         onChange={handleChange} 
-                        value={editPost.difficulty}
+                        value={editPost?.difficulty}
                     />
                 </FormGroup>
                 <FormGroup>
@@ -79,7 +98,7 @@ function PostEdit({ posts, updatePost }) {
                         placeholder="How much did your build cost?" 
                         type="url" 
                         onChange={handleChange} 
-                        value={editPost.price}
+                        value={editPost?.price}
                     />
                 </FormGroup>
                 <FormGroup>
@@ -92,7 +111,7 @@ function PostEdit({ posts, updatePost }) {
                         placeholder="Place your review of the build here." 
                         type="url" 
                         onChange={handleChange} 
-                        value={editPost.review}
+                        value={editPost?.review}
                     />
                 </FormGroup>
                 <FormGroup>
@@ -105,7 +124,7 @@ function PostEdit({ posts, updatePost }) {
                         placeholder="Place your image url here." 
                         type="url" 
                         onChange={handleChange} 
-                        value={editPost.image}
+                        value={editPost?.image}
                     />
                 </FormGroup>
                 <NavLink>
