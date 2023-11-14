@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams, NavLink } from 'react-router-dom'
 import { Card, CardBody, CardTitle, CardText, Button, ListGroup, ListGroupItem } from "reactstrap"
 
-function PostProtectedShow({ posts, currentUser }) {
+function PostProtectedShow({ posts, deletePost }) {
     const { id } = useParams()
         let currentPost = posts.find(post => post.id === +id)
         console.log("currentPost:", currentPost)
@@ -51,8 +51,9 @@ function PostProtectedShow({ posts, currentUser }) {
                             Edit
                         </Button>
                     </NavLink>
-                    <NavLink to="/myposts">
+                    <NavLink to='/myposts'>
                     <Button 
+                        onClick={() => deletePost(currentPost.id)}
                         id="post-show-delete-button" 
                         to="/myposts"
                         >

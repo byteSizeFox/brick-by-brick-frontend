@@ -18,20 +18,59 @@ const SignIn = ({ signin }) => {
   }
 	return(
     
-		<div>
-			<div>
-				<form ref={formRef} onSubmit={handleSubmit}>
-					Email: <input type="email" name='email' placeholder="email" />
-					<br/>
-					Password: <input type="password" name='password' placeholder="password" />
-					<br/>
-					<input type='submit' value="Login" />
-				</form>
+		<div className="signup-background">
+			<div className="card-signup">
+				
+				<Card 
+					color="warning"
+					style={{
+					width: '18rem'
+					}}
+				>
+				<img
+					alt="lego-spongebob"
+					src="https://images.unsplash.com/photo-1558647913-d1c0e5d478fa?auto=format&fit=crop&q=60&w=800&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTI4fHxsZWdvJTIwbG9naW58ZW58MHx8MHx8fDA%3D"
+				/>
+						<CardBody>
+							<CardTitle tag="h5">
+								Welcome Back!
+							</CardTitle>
+							<CardSubtitle
+								className="mb-2 text-muted"
+								tag="h6"
+							>
+								Keep on Building!
+							</CardSubtitle>
+							<CardText>
+								<div>
+									<form ref={formRef} onSubmit={handleSubmit}>
+										Email: <input 
+											type="email" 
+											name='email' 
+											placeholder="email" 
+										/>
+										<br/>
+										Password: <input 
+											type="password" 
+											name='password' 
+											placeholder="password" 
+										/>
+										<br/>
+										<input 
+											type='submit' 
+											value="Login" 
+										/>
+									</form>
+									<br/>
+										<div> Not registered yet, 
+											<NavLink to="/signup">Sign Up</NavLink> 
+										</div>
+								</div>
+							</CardText>
+						</CardBody>
+					</Card>
 				<br />
-					<div> Not registered yet, 
-						<NavLink to="/signup">Sign Up</NavLink> 
-					</div>
-							</div>
+			</div>
 		</div>
 	)
 }

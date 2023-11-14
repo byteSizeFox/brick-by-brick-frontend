@@ -7,11 +7,22 @@
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
 }
+.home-container {
+    background-image: url('./assets/home-background.png') center center/cover repeat;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+    object-fit: contain;
+}
 
 .home-card {
-    float: right;
-    text-align: left;
-    width: '25rem'
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
     
 .not-found {
@@ -51,12 +62,12 @@
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
     object-fit: contain;
 }
-.new-post-form {
+/* .new-post-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-}
+    align-items: center; */
+/* } */
 .home-container {
     display: flex;
     flex-direction: column;
@@ -95,6 +106,7 @@
     grid-template-columns: repeat(auto-fit);
     grid-gap: auto;
     justify-items: center;
+    margin-bottom: 10vh;
 }
 .container {
     display: flex;
@@ -108,10 +120,13 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
     margin: 10px; 
     flex-basis: calc(33% - 20px); 
+    
 }
 .card img {
-    width: 100%; 
+    /* width: 100%;  */
     border-radius: 10px 10px 0 0; 
+    max-width: 100%;
+    max-height: 500px;
 }
 .card-content {
     padding: 16px; 
@@ -133,6 +148,7 @@
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
+    
 }
   
   
@@ -157,9 +173,12 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
     margin: 10px; 
     padding: 10px;
+    margin-top: 10vh;
 }
 .edit-a-post {
-    background-image: url('./assets/edit-a-post.jpg');
+    background-image: url('./assets/Dalle.png');
+    background-position: center;
+    background-size: 165%;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -180,7 +199,7 @@
     margin: 10px; 
     flex-basis: calc(33% - 20px);
     padding: 20px;
-    scroll-padding-bottom: 35vh;
+    margin-bottom: 20vh;
 }
 .new-post-header {
     display: flex;
@@ -192,6 +211,7 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);  
     margin: 10px; 
     padding: 10px;
+    margin-top: 7vh;
 }
 .new-post-form {
     display: flex;
@@ -204,11 +224,14 @@
     margin: 10px; 
     flex-basis: calc(33% - 20px);
     padding: 20px;
-    scroll-padding-bottom: 30vh;
+    margin-bottom: 15vh;
 }
 #new-post-submit-button {
     background-color: rgb(7, 213, 7);
 }
 #navbar-links {
     justify-content: right;
+}
+.post-show-container {
+    background-image: url('./assets/post-show-background.png');
 }
