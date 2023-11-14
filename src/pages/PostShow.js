@@ -10,44 +10,46 @@ function PostShow({ posts }) {
 
     return (
         <>
-            {currentPost &&
-                <Card className="post-show-card">
-                    <CardImg
-                        top
-                        width="100%" 
-                        src={currentPost?.image || defaultImage}
-                        alt={`profile picture for ${currentPost.title}`}
-                        className="index-image"
-                        onError={(e) => { e.target.onerror = null; e.target.src = defaultImage; }}
-                    />
-                    <CardBody>
-                        <CardTitle tag="h5">
-                            {currentPost.username}'s "{currentPost.title}" Build
-                        </CardTitle>
-                    </CardBody>
-                        <ListGroup flush>
-                            <ListGroupItem>
-                                Time spent on build: {currentPost.time_spent}
-                            </ListGroupItem>
-                            <ListGroupItem>
-                                Build Difficulty: {currentPost.difficulty}
-                            </ListGroupItem>
-                            <ListGroupItem>
-                                Build Price: {currentPost.price}
-                            </ListGroupItem>
-                        </ListGroup>
-                        <CardText>
-                            {currentPost.review}
-                        </CardText>
-                    <CardBody>
-                        <NavLink to="/postindex" >
-                        <Button id="post-show-back-button" to="/postindex">
-                            Back
-                        </Button>
-                        </NavLink>
-                    </CardBody>
-                </Card>
-        }       
+            <main className="post-show-container">
+                {currentPost &&
+                    <Card className="post-show-card">
+                        <CardImg
+                            top
+                            width="100%" 
+                            src={currentPost?.image || defaultImage}
+                            alt={`profile picture for ${currentPost.title}`}
+                            className="index-image"
+                            onError={(e) => { e.target.onerror = null; e.target.src = defaultImage; }}
+                        />
+                        <CardBody>
+                            <CardTitle tag="h5">
+                                {currentPost.username}'s "{currentPost.title}" Build
+                            </CardTitle>
+                        </CardBody>
+                            <ListGroup flush>
+                                <ListGroupItem>
+                                    Time spent on build: {currentPost.time_spent}
+                                </ListGroupItem>
+                                <ListGroupItem>
+                                    Build Difficulty: {currentPost.difficulty}
+                                </ListGroupItem>
+                                <ListGroupItem>
+                                    Build Price: {currentPost.price}
+                                </ListGroupItem>
+                            </ListGroup>
+                            <CardText>
+                                {currentPost.review}
+                            </CardText>
+                        <CardBody>
+                            <NavLink to="/postindex" >
+                            <Button id="post-show-back-button" to="/postindex">
+                                Back
+                            </Button>
+                            </NavLink>
+                        </CardBody>
+                    </Card>
+            }     
+        </main>  
         </>
     )
 }
