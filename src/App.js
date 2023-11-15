@@ -147,23 +147,23 @@ function App() {
     }   
 
     return (
-    <>  
-        <Header currentUser={currentUser} signin={signin} logout={logout} />
-        <Routes>
-            <Route path="/" element={<Home currentUser={currentUser} />} />
-            <Route path="/postedit/:id" element={<PostEdit posts={posts} updatePost={updatePost} currentUser={currentUser} />} />
-            <Route path="/postindex" element={<PostIndex posts={posts} currentUser={ currentUser }/>} />
-            <Route path="/postnew" element={<PostNew createPost={createPost} currentUser={currentUser} />} />
-            <Route path="/myposts" element={<PostProtectedIndex currentUser={currentUser} posts={posts} />} />
-            <Route path="/mypostshow/:id" element={<PostProtectedShow currentUser={currentUser} posts={posts} deletePost={deletePost} />} />
-            <Route path="/postshow/:id" element={<PostShow posts={posts} />} />
-            <Route path="/signin" element={<SignIn signin={signin} />} />
-            <Route path="/signup" element={<SignUp signup={signup} />} />
-            <Route path="/aboutus" element={<AboutUs />} />
-            <Route path="*" element={<NotFound />} />
-        </Routes>
-        <Footer />
-    </>
+        <div>  
+            <Header currentUser={currentUser} signin={signin} logout={logout} />
+            <Routes>
+                <Route path="/" element={<Home currentUser={currentUser} />} />
+                <Route path="/postedit/:id" element={<PostEdit posts={posts} updatePost={updatePost} currentUser={currentUser} />} />
+                <Route path="/postindex" element={<PostIndex posts={posts} currentUser={ currentUser }/>} />
+                <Route path="/postnew" element={<PostNew createPost={createPost} currentUser={currentUser} />} />
+                <Route path="/myposts" element={<PostProtectedIndex currentUser={currentUser} posts={posts} />} />
+                <Route path="/mypostshow/:id" element={<PostProtectedShow currentUser={currentUser} posts={posts} deletePost={deletePost} />} />
+                <Route path="/postshow/:id" element={<PostShow posts={posts} />} />
+                <Route path="/signin" element={<SignIn signin={signin} />} />
+                <Route path="/signup" element={<SignUp signup={signup} />} />
+                <Route path="/aboutus" element={<AboutUs />} />
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+            <Footer />
+        </div>
     )
 }
 

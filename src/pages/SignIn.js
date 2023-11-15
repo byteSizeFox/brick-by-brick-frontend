@@ -14,7 +14,8 @@ const SignIn = ({ signin }) => {
     }
     signin(userInfo)
     navigate('/')
-    e.target.reset()
+
+    // e.target.reset() if it doesnt work uncomment this 
   }
 	return(
     

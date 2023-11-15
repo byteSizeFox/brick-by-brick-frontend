@@ -12,8 +12,10 @@ describe('<PostShow />', () => {
                </Routes>
             </MemoryRouter>
         )
-        const altTxt = screen.getByRole('heading', { name: /legolover123's post1 build/i
-            })
+
+        const altTxt = screen.getByRole('heading', {
+            name: /'s "galactic voyager xz\-9000" build/i
+        })
         expect(altTxt).toBeInTheDocument
         
     })
