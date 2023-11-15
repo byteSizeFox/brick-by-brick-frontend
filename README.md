@@ -313,3 +313,42 @@ FONT (index.html)
 					<input type='submit' value="Login" />
 				</form>
 ```
+
+```jsx
+<div className='footer'>
+            <Navbar id="navbar-footer"
+                className='footer-container' 
+                fixed="bottom" 
+                color='warning'
+            >
+                <div className="footer-div">
+                        <img className='footer-logo'
+                            src={bytesize} 
+                            alt='bytesize logo' 
+                            id='footer-logo'  
+                            width="100" 
+                            height="40"
+                        />
+                        <div className='footer-links'>
+                            <NavLink 
+                                to="/" 
+                                className="home-link"
+                            >
+                                Home
+                            </NavLink>
+                        </div>
+                        <div className='footer-links'>
+                            <NavLink 
+                                to="/aboutus" 
+                                className="about-us"
+                            >
+                                About-Us
+                            </NavLink>
+                        </div>
+                        <div className='footer-links'>
+                            <p className='footer-text'> &copy; 2023 ByteSize </p>
+                        </div>
+                </div>
+            </Navbar>
+        </div>
+```

@@ -5,9 +5,10 @@ import { Card, CardBody, CardTitle, CardSubtitle, CardText } from "reactstrap"
 import { NavLink } from 'react-router-dom';
 
 function Home ({currentUser}) {
-    return (    
+    return (  
+        <body id="homepage">
         <div className="home-container">
-                <Card className="home-card">
+                <Card id="home-card">
                     <CardBody>
                         <CardTitle tag="h5">
                             Welcome to BrickByBrick!
@@ -42,6 +43,7 @@ function Home ({currentUser}) {
                 </CardBody>
             </Card>
         </div>  
+        </body>  
     );
 }
 

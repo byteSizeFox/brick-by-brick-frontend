@@ -42,54 +42,56 @@ function Header({ signin, currentUser, logout }) {
                     />
                     Brick By Brick
                 </NavbarBrand>
-                <NavbarToggler 
-                    onClick={toggleNavbar} 
-                    className="me-2" 
-                />
-                <Collapse isOpen={!collapsed} navbar>
-                    <Nav id="navbar-links" navbar>
-                        <NavItem>
-                            <NavLink to="/postindex">
-                                See all Builds
-                            </NavLink>
-                        </NavItem>
-                        {currentUser && (
-                        <NavItem>
-                            <NavLink to="/myposts">
-                                See all your Builds
-                            </NavLink>
-                        </NavItem>
-                        )}
-                        {currentUser && (
-                        <NavItem>
-                            <NavLink to="/postnew">
-                                Post your new Build
-                            </NavLink>
-                        </NavItem>
-                        )}
-                        {currentUser && (
-                        <>
+                <div className="dropDownMenu">
+                    <NavbarToggler 
+                        onClick={toggleNavbar} 
+                        // className="me-2" 
+                    />
+                    <Collapse isOpen={!collapsed} navbar>
+                        <Nav id="navbar-links" navbar>
                             <NavItem>
-                                <NavLink onClick={handleClick}>
-                                    Logout
+                                <NavLink className="header-links" to="/postindex">
+                                    See all Builds
                                 </NavLink>
                             </NavItem>
-                        </>
-                        )}
-                        {!currentUser && (
+                            {currentUser && (
+                            <NavItem>
+                                <NavLink className="header-links" to="/myposts">
+                                    See all your Builds
+                                </NavLink>
+                            </NavItem>
+                            )}
+                            {currentUser && (
+                            <NavItem>
+                                <NavLink className="header-links" to="/postnew">
+                                    Post your new Build
+                                </NavLink>
+                            </NavItem>
+                            )}
+                            {currentUser && (
                             <>
                                 <NavItem>
-                                    <NavLink 
-                                        signin={signin} 
-                                        to={`/signin`} 
-                                        onClick={handleLogIn}>
-                                        Login
+                                    <NavLink className="header-links" onClick={handleClick}>
+                                        Logout
                                     </NavLink>
                                 </NavItem>
                             </>
-                        )}
-                    </Nav>
-                </Collapse>
+                            )}
+                            {!currentUser && (
+                                <>
+                                    <NavItem>
+                                        <NavLink className="header-links" 
+                                            signin={signin} 
+                                            to={`/signin`} 
+                                            onClick={handleLogIn}>
+                                            Login
+                                        </NavLink>
+                                    </NavItem>
+                                </>
+                            )}
+                        </Nav>
+                    </Collapse>
+                </div>
             </Navbar>
         </div>
     );

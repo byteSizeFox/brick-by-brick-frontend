@@ -24,7 +24,8 @@ const PostProtectedIndex = ({posts, currentUser}) => {
                             <CardSubtitle tag="h6">
                                 {`Made By: ${post.username}`}
                             </CardSubtitle>
-                            <Button>
+                            
+                            <Button className="postedit-button">
                                 <NavLink to={`/mypostshow/${post.id}`
                                 }>
                                     See more details
