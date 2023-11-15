@@ -32,6 +32,10 @@
 
 .about-us {
     order: -1;
+    margin-right: 20px;
+    color: black;
+
+
 }
 
 .footer-logo {
@@ -247,4 +251,24 @@
 }
 .post-show-container {
     background-image: url('./assets/post-show-background.png');
+}
+
+.footer-container {
+   float: left;
+   padding: 12px;
+   width: 33%;
+   text-align: center;
+}
+
+.home-link {
+    color: black;
+}
+
+.about-us:hover {
+    color: white;
+
+}
+
+.home-link:hover{
+    color: white;
 }
