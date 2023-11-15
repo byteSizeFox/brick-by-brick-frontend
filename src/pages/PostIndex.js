@@ -18,14 +18,14 @@ function PostIndex({ posts }) {
                         onError={(e) => { e.target.onerror = null; e.target.src = defaultImage; }}
                     />
                     <CardBody>
-                        <CardTitle tag="h5">
+                        <CardTitle tag="h5" className="index-title">
                             {post.title}
                         </CardTitle>
-                        <CardSubtitle tag="h6">
+                        <CardSubtitle tag="h6" className="index-subtitle">
                             {`Made By: ${post.username}`}
                         </CardSubtitle>
 
-                        <Button>
+                        <Button className="index-button">
                             <NavLink to={`/postshow/${post.id}`} className="nav-link">
                                 See more details
                             </NavLink>
