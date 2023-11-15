@@ -18,15 +18,23 @@ function Footer() {
                     width="120" 
                     height="50"
                 />
-                <p className='footer-text'>
-                    &copy; 2023 ByteSize 
-                </p>
-                    <NavLink 
-                        to="/aboutus" 
-                        className="about-us"
-                    >
-                        About-Us
-                    </NavLink>
+                <div className='footer-container'> 
+                        <NavLink 
+                            to="/aboutus" 
+                            className="about-us"
+                        >
+                            About-Us
+                        </NavLink>
+                        <NavLink 
+                            to="/" 
+                            className="home-link"
+                        >
+                            Home
+                        </NavLink>
+                        <p className='footer-text'>
+                            &copy; 2023 ByteSize 
+                        </p>
+                </div>
             </Navbar>
         </>
     )
