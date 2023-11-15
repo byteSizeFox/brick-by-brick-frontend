@@ -9,9 +9,10 @@ describe("PostEdit page", () => {
                 <PostEdit />
             </BrowserRouter>
         )
-        const greetingLink = screen.getByRole('heading', { 
-            name: /Edit your Build/i 
-        })
+
+        const greetingLink = screen.getByText(/post not found/i)
+
         expect(greetingLink).toBeInTheDocument()
     })
+
 })

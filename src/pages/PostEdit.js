@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useNavigate, useParams, NavLink } from 'react-router-dom'
 import { Form, FormGroup, Label, Input, Button } from "reactstrap"
 
-
 const PostEdit = ({ posts, updatePost, currentUser }) => {
     const {id} = useParams()
     let currentPost = posts?.find(post => post.id === +id)
@@ -12,7 +11,6 @@ const PostEdit = ({ posts, updatePost, currentUser }) => {
     console.log("post:", posts)
     console.log("currentUser", currentUser)
     console.log("currentPost", currentPost)
-
 
     const [ editPost, setEditPost] = useState({
 

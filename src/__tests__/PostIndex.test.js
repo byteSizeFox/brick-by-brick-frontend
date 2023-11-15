@@ -10,9 +10,11 @@ describe('<PostIndex />', () => {
                 <PostIndex posts={mockPosts} />
             </BrowserRouter>
         )
+
         mockPosts.forEach((post) => {
             const altTxt = screen.getByRole('heading', {
-                name: /title: post1/i
+                name: /galactic voyager xz\-9000/i
+              
             })
             expect(altTxt).toBeInTheDocument
         })
