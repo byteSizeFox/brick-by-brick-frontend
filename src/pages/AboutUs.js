@@ -24,11 +24,11 @@ const AboutUs = () => {
                     <CardBody>
                         <CardTitle tag="h5">
                             <span className="font-link">
-                                Anabella
+                                Anabella Sandino
                             </span>
                         </CardTitle>
                         <CardText>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Native to North Carolina, currently located in the city of Winston Salem, they have a background predominantly associated with the Customer Service Industry. Proficient in both English and Spanish, they have discovered the beauty of connecting with people through different tongues, expanding their cultural horizons along the way. Recently, they have embarked on a thrilling journey into the realm of coding. Learning the language of computers has opened up a whole new world of creativity and problem-solving for them. Passion fuels their every endeavor, and two areas that set their soul on fire are exercise and the pursuit of knowledge. Staying active is not just a routine but a celebration of life. Equally, their thirst for knowledge knows no bounds — they are always seeking new skills, insights, and perspectives to enrich their understanding of the world.
                         </CardText>
                     </CardBody>
                     <CardBody className= "contact-us-links">
@@ -61,11 +61,11 @@ const AboutUs = () => {
                     <CardBody>
                         <CardTitle tag="h5">
                             <span className="font-link">
-                                Louis
+                                Louis Brizuela
                             </span>
                         </CardTitle>
                         <CardText>
-                        A Bay Area native that has recently relocated to sunny San Diego. With a deep passion for the military, I previously answered the call to serve and am so grateful for the memories, connections, and lessons learned. Beyond military experience, I'm a digital artist, pouring my creativity into captivating digital works. My passion for computer science shines through as I progress in coding, showcasing my talent and dedication in the world of technology. Embodying the perfect blend of military commitment and artistic and technical prowess.
+                        A Bay Area native that has recently relocated to sunny San Diego. With a deep passion for programming and art, Spent 4 years in the United States Marine Corps and is so grateful for the memories, connections, and lessons learned. Beyond military experience, Hes an artist, pouring his creativity into captivating traditional and digital works. His passion for computer science shines through as he progress in coding, showcasing his talent and dedication in the world of technology. Embodying the perfect blend of military commitment and artistic and technical prowess.
                         </CardText>
                     </CardBody>
                     <CardBody className= "contact-us-links">
@@ -98,11 +98,11 @@ const AboutUs = () => {
                     <CardBody>
                         <CardTitle tag="h5">
                             <span className="font-link">
-                                Mal
+                                Mal Sherer
                             </span>
                         </CardTitle>
                         <CardText>
-                        Born and raised in Houston, Texas, my life has been a mix of technology and the beautiful game of soccer. The unique blend of cultures and opportunities in Houston has shaped who I am today, instilling in me a deep appreciation for diversity and the power of inclusion. The world of programming, with its endless possibilities and the ability to create and innovate, has been a constant source of inspiration for me. Whether it's building websites, or developing apps, coding has become my way of turning ideas into reality. But it's not all about screens and algorithms. Soccer is my second passion. On weekends, you'll often find me on the field, chasing a ball and sharing the beautiful game with friends and fellow enthusiasts.
+                        I'm Mal, the product manager for Brick By Brick. After over a decade of working in customer service, I was eager for a change and enrolled in LEARN Academy, specializing in full-stack web development. As a web developer, I have a passion for discovering how things work and finding creative solutions to every day problems. An avid sports fan, I can be found after work cheering for San Diego Wave FC and playing as a defender with my local recreational soccer league. I’m currently based in Los Angeles, where I live with my two cats and an ever growing collection of carnivorous plants.
                         </CardText>
                     </CardBody>
                     <CardBody className= "contact-us-links">
@@ -135,11 +135,11 @@ const AboutUs = () => {
                     <CardBody>
                         <CardTitle tag="h5">
                             <span className="font-link">
-                                Shaun
+                                Shaun Stephenson
                             </span>
                         </CardTitle>
                         <CardText>
-                        I'm a San Diego native with a passion for the sun, surf, and coding. Having called this vibrant coastal city home, my love for the beach runs deep, and you'll often find me soaking up the sun or catching waves with my trusty three-legged companion by my side. Yes, my furry friend is a resilient and inspiring three-legged dog who adds an extra layer of adventure to my life. Beyond the sandy shores, I'm immersed in the world of coding, constantly seeking new challenges and innovations in the digital realm. And if you catch me switching seamlessly between English and German, it's because I've also developed a fluency in the German language. Whether I'm crafting lines of code or enjoying the ocean breeze, I find joy in the balance between the tech-driven world and the natural beauty that San Diego has to offer.
+                        He is a San Diego native with a fervent passion for the sun, surf, and coding. He calls the vibrant coastal city his home, where his love for the beach is profound. Often, he can be found soaking up the sun or surfing, with his extraordinary three-legged dog by his side. This resilient canine companion brings an adventurous dimension to his life. Beyond the sandy shores, he is deeply immersed in the world of coding, constantly seeking new challenges and innovations in the digital realm. He finds joy in maintaining a balance between his tech-driven interests and the natural beauty of San Diego, embodying the perfect blend of technology and the serenity of the ocean breeze.
                         </CardText>
                     </CardBody>
                     <CardBody className= "contact-us-links">
