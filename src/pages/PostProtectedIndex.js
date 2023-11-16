@@ -43,12 +43,6 @@ const PostProtectedIndex = ({posts, currentUser}) => {
                                     See more details
                                 </NavLink>
                             </Button>
-                            {/* <Button>
-                                <NavLink to={`/postedit/${post.id}`
-                                }>
-                                    Edit Post
-                                </NavLink>
-                            </Button> */}
                         </CardBody>
                     </Card>
                     ))
