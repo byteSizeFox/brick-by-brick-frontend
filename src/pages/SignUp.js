@@ -1,13 +1,16 @@
-import React, {useRef} from "react";
+import React, {useRef, useState} from "react";
 import { useNavigate, NavLink } from "react-router-dom";
-import { Card, CardBody, CardTitle, CardSubtitle, CardText } from "reactstrap"
+import { Card, CardBody, CardTitle, CardSubtitle, CardText, Modal, ModalHeader, ModalBody, ModalFooter, Button } from "reactstrap"
 
 const SignUp = ({signup}) => {
 
-  const formRef = useRef()
-  const navigate = useNavigate()
+    const [modal, setModal] = useState(false);
+	const toggle = () => setModal(!modal);
 
-  const handleSubmit = (e) => {
+    const formRef = useRef()
+    const navigate = useNavigate()
+
+    const handleSubmit = (e) => {
 
     e.preventDefault()
 
@@ -20,7 +23,7 @@ const SignUp = ({signup}) => {
     }
     signup(userInfo)
     navigate("/")
-    e.target.reset()
+    // e.target.reset()
   }
     return(
         <div className="signup-background">
@@ -56,9 +59,32 @@ const SignUp = ({signup}) => {
                                 <br/>
                                 Confirm Password: <input type="password" name="password_confirmation" placeholder="confirm password" />
                                 <br/>
-                                <input type="submit" value="Submit" />
                                 </form>
                                 <br />
+                                <div>
+										<input 
+											color="danger" 
+											onClick={toggle}
+											type='submit' 
+											value="Submit" 
+										/>
+										<Modal isOpen={modal} toggle={toggle} {...signup}>
+											<ModalHeader toggle={toggle}>Welcome back!!</ModalHeader>
+											<ModalBody>
+											Welcome, Lego enthusiast! 👋👋🏻👋🏼👋🏽👋🏾👋🏿 We're super excited to have you here. Get ready to explore new builds, share your creations, and connect with fellow builders. Your world of imagination is just a click away. Happy building!
+											</ModalBody>
+											<ModalFooter>
+												<Button color="warning" onClick={handleSubmit}
+												>
+													Submit and post your builds!
+												</Button>{' '}
+												<Button color="danger" onClick={toggle}
+												>
+													Cancel
+												</Button>
+											</ModalFooter>
+										</Modal>
+									</div>
                                 <div> Already registered, <NavLink to="/signin">Login</NavLink></div>
                             </div>
                         </CardText>
