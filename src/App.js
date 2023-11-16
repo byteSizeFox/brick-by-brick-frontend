@@ -21,7 +21,7 @@ import { Route, Routes } from 'react-router-dom'
 function App() {
     const [currentUser, setCurrentUser] = useState(null)
     const [posts, setPosts] = useState([])
-    const url = 'http://localhost:3000'
+    const url = 'https://brick-by-brick-backend.onrender.com'
     console.log("currentUser:", currentUser)
     
     
