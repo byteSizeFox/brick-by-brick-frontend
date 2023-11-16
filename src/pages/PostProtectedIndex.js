@@ -1,14 +1,26 @@
 import React from "react"
-import { Card, CardImg, CardBody, CardTitle, Button, CardSubtitle } from "reactstrap";
-import { NavLink } from "react-router-dom"
+import { Card, CardImg, CardBody, CardTitle, Button, CardSubtitle, NavItem } from "reactstrap";
+import { NavLink, Navigate, useNavigate } from "react-router-dom"
 
 
 const PostProtectedIndex = ({posts, currentUser}) => {
     const currentPosts = posts?.filter(post => post.user_id === currentUser?.id)
+    
     return (
         <>
             <main className="index-container"> 
-                {currentPosts?.map((post, index) => (
+                {currentPosts?.length === 0 ? (
+                    <div className="no-post-pic"> 
+                    <NavItem>
+                        <NavLink to="/postnew"> 
+                            <Button>
+                                Post your first Build!
+                            </Button>
+                        </NavLink>
+                    </NavItem>
+                    </div>
+                ):( 
+                currentPosts?.map((post, index) => (
                     <Card className="card" color='warning' key={index} >
                         <CardImg
                             top
@@ -39,7 +51,8 @@ const PostProtectedIndex = ({posts, currentUser}) => {
                             </Button> */}
                         </CardBody>
                     </Card>
-                ))}
+                    ))
+                )}
             </main>
         </>
     )

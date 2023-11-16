@@ -92,6 +92,22 @@
     grid-gap: auto;
     justify-items: center;
     margin-bottom: 10vh;
+    height: 80vh;
+}
+.no-post-pic {
+    background: url('./assets/no-post-pic.png') no-repeat;
+    background-position: auto;
+    background-position: center;
+    background-size: 100%;
+    height: 80vh;
+    width: 100%;
+
+}
+.no-post {
+    color: black;
+}
+#first-post-button {
+    position: center;
 }
 .container {
     display: flex;
@@ -172,8 +188,6 @@
     box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
     object-fit: contain;
     margin-bottom: 40vh;
-
-
 }
 .edit-post-form {
     display: flex;
@@ -233,14 +247,12 @@
     text-align: right;
     color: black;
     margin-left: auto;
-  }
+}
 
 .index-button {
     padding-bottom: 50px;
     position: absolute;
-    bottom: 0;
-    
-   
+    bottom: 1;
 }
 
 .index-subtitle {
